@@ -1,0 +1,28 @@
+h4 Import Data
+
+= form_tag import_persons_path, multipart: true do
+	= file_field_tag :file
+	= submit_tag 'Import CSV'
+
+br
+h2 Persons
+table
+	tr
+		th
+			|Name
+		th
+			|Date
+		th
+			|Number
+		th
+			|Description
+	- @persons.each do |person|
+		tr
+			td
+				= person.name
+			td
+				= person.date.to_s
+			td
+				= person.number
+			td
+				= person.description
